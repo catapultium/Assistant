@@ -16,14 +16,17 @@ import java.util.Map;
 @Controller
 public class SpeedQuizController {
 
-    @MessageMapping("/echo") 
+    @MessageMapping("/echo")
     @SendTo("/topic/echoTest")
-    public Message echo(Principal principal, Message message, @Payload String payload, SimpMessageHeaderAccessor headerAccessor)  {
-        Map<String, Object> stringObjectMap = headerAccessor.getSessionAttributes();
-        String sessionId = headerAccessor.getSessionId();
-        log.debug(sessionId);
-        log.debug(principal.getName());
-        log.debug(message.toString());
+    public Message echo(Message message, @Payload String payload, SimpMessageHeaderAccessor headerAccessor) {
+        
+        String webSocketSessionId = headerAccessor.getSessionId();
+        String httpSessionId = headerAccessor.getSessionAttributes().get("sessionId").toString();
+
+        log.debug("webSocketSessionId : " + webSocketSessionId);
+        log.debug("httpSessionId : " + httpSessionId);
+        
+        log.debug("message : " +  message.toString());
         return message;
     }
 }
