@@ -1,4 +1,4 @@
-package com.catapultium.assistant.configulration;
+package com.catapultium.assistant.config;
 
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
