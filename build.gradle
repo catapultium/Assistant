@@ -32,6 +32,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-websocket')
+
+    compile('org.springframework.security:spring-security-web')
+    
     runtime('org.springframework.boot:spring-boot-devtools')
     compileOnly('org.projectlombok:lombok')
 //	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
